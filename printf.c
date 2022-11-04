@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 			counter++;
 		}
 		else if ((format[i] == '%' && format[i - 1] != '%') ||
-			       	(format[i] == '%' && format[i - 1] == '%' && format[i + 1]) == '%' ||
+			       	(format[i] == '%' && format[i - 1] == '%' && format[i + 1] == '%') ||
 				(format[i] == '%' && format[i - 1] == '%' && format[i - 2] == '%'))
 		{
 			
@@ -48,7 +48,6 @@ int help(va_list args, char c)
 	list_t list[] = {
 		{ "s", printstring },
 		{ "d", printnumber },
-		{ "i", pna }
 	};
 	while (j < 5)
 	{

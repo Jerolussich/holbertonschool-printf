@@ -27,7 +27,4 @@ int printstring(va_list args);
 int pp(va_list args);
 
 int printnumber(va_list args);
-
-int pna(int n);
-
 #endif
