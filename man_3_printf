@@ -1,0 +1,50 @@
+.TH man 3 "2022-11-03" "1.0" "_printf man page"
+.SH NAME
+_printf - Writes the C string.
+.SH SYNOPSIS
+#include "main.h"
+.br
+_printf
+
+.SH DESCRIPTION
+The function _printf() prints according to format specifiers, beginning with % , folowed by the resulting string replacing their respective specifiers.
+
+FORMAT is the string where is going to be printed.
+
+(%something) of FORMAT:
+.TP
+%c  -
+Prints ARGUMENT of type character.
+.TP
+%s  -
+Prints ARGUMENT of type string.
+.TP
+%%  -
+Prints a %.
+.TP
+%d  -
+Prints ARGUMENT of type decimal.
+.TP
+%i  -
+Prints ARGUMENT of type integer.
+
+.SH RETURN VALUE
+On success, the total number of characters written is returned.
+
+If not, a negative is returned.
+
+.SH EXAMPLE
+Print a string:
+
+int v = 0;
+
+char *string = "Holberton";
+
+v = _printf("I'am studying at%s\n", string);
+
+_printf("%d\n", v);
+
+return (0);
+
+.SH AUTHOR
+.B Written by Santiago Vidarte and Jeronimo Lussich.
