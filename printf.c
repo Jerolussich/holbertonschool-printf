@@ -9,21 +9,20 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, counter = 0;
 
-	
-	if (!format || !strcmp(format, "%"))
-		return (-1);
-	
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && (format[i + 1] == 0 || format[i + 1] == '%'))
+		if (format[i] == '%' && format[i + 1] == '%' && format[i - 1] != '%')
 		{
 			_putchar('%');
 			i++;
 			counter++;
 		}
-		else if (format[i] == '%')
+		else if ((format[i] == '%' && format[i - 1] != '%') ||
+			       	(format[i] == '%' && format[i - 1] == '%' && format[i + 1]) == '%' ||
+				(format[i] == '%' && format[i - 1] == '%' && format[i - 2] == '%'))
 		{
+			
 			counter += help(args, format[i + 1]);
 			i++;
 		}
@@ -47,10 +46,8 @@ int help(va_list args, char c)
 {
 	int j = 0;
 	list_t list[] = {
-		{ "c", pc },
-		{ "s", ps },
-		{ "%", pp },
-		{ "d", pn },
+		{ "s", printstring },
+		{ "d", printnumber },
 		{ "i", pna }
 	};
 	while (j < 5)
@@ -61,7 +58,5 @@ int help(va_list args, char c)
 		}
 		j++;
 	}
-	_putchar('%');
-	_putchar(c);
 	return (2);
 }

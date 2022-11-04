@@ -22,14 +22,12 @@ int _printf(const char *format, ...);
 
 int help(va_list args, char c);
 
-int pc(va_list args);
-
-int ps(va_list args);
+int printstring(va_list args);
 
 int pp(va_list args);
 
-int pn(va_list args);
+int printnumber(va_list args);
 
-int pna(unsigned int n);
+int pna(int n);
 
 #endif
