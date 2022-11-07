@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	/* If format is null or if string do not have a '%' */
 	if (!format || !strcmp(format, "%"))
 		return (-1);
-
 	va_start(args, format);
 	while (format[i])
 	{

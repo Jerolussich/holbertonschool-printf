@@ -30,6 +30,6 @@ int printporcentage(va_list args);
 
 int printnumber(va_list args);
 
-int printnumberunsigned(unsigned int n);
+int printnumberunsig(unsigned int n);
 
 #endif

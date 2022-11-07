@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * printcharacter - prints character 
+ * printcharacter - prints character
  * @args: argument
- * Return: length of printed 
+ * Return: length of printed
  */
 int printcharacter(va_list args)
 {
@@ -39,7 +39,6 @@ int printstring(va_list args)
  * printporcentage - print porcentage
  * @args: argument
  * Return: length of printed
- * 
  */
 int printporcentage(va_list args)
 {
@@ -61,7 +60,7 @@ int printporcentage(va_list args)
 	return (0);
 }
 /**
- * printnumber - returns a value from function printnumberunsigned
+ * printnumber - returns a value from function printnumberunsig
  * @args: argument
  * Return: printed number of length
  */
@@ -72,25 +71,25 @@ int printnumber(va_list args)
 	if (n < 0)
 	{
 		_putchar('-');
-		return (printnumberunsigned(-n) + 1);
+		return (printnumberunsig(-n) + 1);
 	}
 	else
 	{
-		return (printnumberunsigned(n));
+		return (printnumberunsig(n));
 	}
 }
 /**
- * printnumberunsigned - print number
+ * printnumberunsig - print number
  * @n: unsigned int value
  * Return: number given
  */
-int printnumberunsigned(unsigned int n)
+int printnumberunsig(unsigned int n)
 {
 	int c = 0;
 
 	if (n / 10 != 0)
 	{
-		c = printnumberunsigned(n / 10);
+		c = printnumberunsig(n / 10);
 	}
 	return (_putchar((n % 10) + '0') + c);
 }
