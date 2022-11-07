@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * 
- * 
- * 
+ * _printf - print output according to given format
+ * @format: character string composed of zero or more directives
+ * Return: -1 if NULL, number of characters if succesful
  */
 int _printf(const char *format, ...)
 {
@@ -12,11 +12,10 @@ int _printf(const char *format, ...)
 	/* If format is null or if string do not have a '%' */
 	if (!format || !strcmp(format, "%"))
 		return (-1);
-	
+
 	va_start(args, format);
 	while (format[i])
 	{
-		/* Format have a '%' in current position and next position is '/0' or next position is '%' ?*/
 		if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == '%'))
 		{
 			_putchar('%');
@@ -40,20 +39,20 @@ int _printf(const char *format, ...)
 	return (counter);
 }
 /**
- * 
- *
- * 
- * 
+ * help - functions chooses correct function in a structure
+ * @args: functions in structure
+ * @c: argument given
+ * Return: printed value or character length
  */
 int help(va_list args, char c)
 {
 	int j = 0;
 	list_t list[] = {
-		{ "c", pc },
-		{ "s", ps },
-		{ "%", pp },
-		{ "d", pn },
-		{ "i", pn }
+		{ "c", printcharacter },
+		{ "s", printstring },
+		{ "%", printporcentage },
+		{ "d", printnumber },
+		{ "i", printnumber }
 	};
 	while (j < 5)
 	{

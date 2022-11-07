@@ -6,9 +6,9 @@
 #include <string.h>
 #include <stdlib.h>
 /**
- * 
- * 
- * 
+ * struct list - structure for use in function selection
+ * @cs: string
+ * @f: pointer to function
  */
 typedef struct list
 {
@@ -22,14 +22,14 @@ int _printf(const char *format, ...);
 
 int help(va_list args, char c);
 
-int pc(va_list args);
+int printcharacter(va_list args);
 
-int ps(va_list args);
+int printstring(va_list args);
 
-int pp(va_list args);
+int printporcentage(va_list args);
 
-int pn(va_list args);
+int printnumber(va_list args);
 
-int pna(unsigned int n);
+int printnumberunsigned(unsigned int n);
 
 #endif

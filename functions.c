@@ -1,20 +1,20 @@
 #include "main.h"
 /**
- * 
- * 
- * 
+ * printcharacter - prints character 
+ * @args: argument
+ * Return: length of printed 
  */
-int pc(va_list args)
+int printcharacter(va_list args)
 {
 	_putchar(va_arg(args, int));
 	return (1);
 }
 /**
- * 
- * 
- * 
+ * printstring - prints string given
+ * @args: argument
+ * Return: 6 if null or length of printed
  */
-int ps(va_list args)
+int printstring(va_list args)
 {
 	char *string = va_arg(args, char *), *null = "(null)";
 	int len, i;
@@ -36,11 +36,12 @@ int ps(va_list args)
 	}
 }
 /**
- * 
- * 
+ * printporcentage - print porcentage
+ * @args: argument
+ * Return: length of printed
  * 
  */
-int pp(va_list args)
+int printporcentage(va_list args)
 {
 	char *string;
 	int i;
@@ -55,40 +56,41 @@ int pp(va_list args)
 			_putchar('%');
 			return (1);
 		}
+		i++;
 	}
 	return (0);
 }
 /**
- * 
- * 
- * 
+ * printnumber - returns a value from function printnumberunsigned
+ * @args: argument
+ * Return: printed number of length
  */
-int pn(va_list args)
+int printnumber(va_list args)
 {
 	int n = va_arg(args, int);
 
 	if (n < 0)
 	{
 		_putchar('-');
-		return (pna(-n) + 1);
+		return (printnumberunsigned(-n) + 1);
 	}
 	else
 	{
-		return (pna(n));
+		return (printnumberunsigned(n));
 	}
 }
 /**
- * 
- * 
- * 
+ * printnumberunsigned - print number
+ * @n: unsigned int value
+ * Return: number given
  */
-int pna(unsigned int n)
+int printnumberunsigned(unsigned int n)
 {
 	int c = 0;
 
 	if (n / 10 != 0)
 	{
-		c = pna(n / 10);
+		c = printnumberunsigned(n / 10);
 	}
 	return (_putchar((n % 10) + '0') + c);
 }
