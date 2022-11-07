@@ -1,37 +1,94 @@
-#include <stdarg.h>
 #include "main.h"
-int printstring (va_list args)
+/**
+ * 
+ * 
+ * 
+ */
+int pc(va_list args)
 {
-	char *i = va_arg(args, char *);
-	int j = 0;
-
-	while (i[j])
-	{
-		putchar(i[j]);
-		j++;
-	}
-	return (0);
+	_putchar(va_arg(args, int));
+	return (1);
 }
-int printnumber (va_list args)
+/**
+ * 
+ * 
+ * 
+ */
+int ps(va_list args)
 {
-	int i = va_arg(args, int);
+	char *string = va_arg(args, char *), *null = "(null)";
+	int len, i;
 
-	if (i < 0)
+	if (string == NULL)
 	{
-		_putchar('-');
-		i = -i;
+		for (i = 0; null[i]; i++)
+			_putchar(null[i]);
+		return (6);
 	}
 	else
-		putnumber(i);
+	{
+		len = strlen(string);
+		for (i = 0; i < len; i++)
+		{
+			_putchar(string[i]);
+		}
+		return (len);
+	}
+}
+/**
+ * 
+ * 
+ * 
+ */
+int pp(va_list args)
+{
+	char *string;
+	int i;
 
+	string = va_arg(args, char*);
+	i = 0;
+
+	while (string[i])
+	{
+		if (string[i] == '%')
+		{
+			_putchar('%');
+			return (1);
+		}
+	}
 	return (0);
 }
-int putnumber (int number)
+/**
+ * 
+ * 
+ * 
+ */
+int pn(va_list args)
 {
-	if ((number / 10) > 0)
+	int n = va_arg(args, int);
+
+	if (n < 0)
 	{
-		putnumber(number / 10);
-		_putchar (number % 10 + '0');
+		_putchar('-');
+		return (pna(-n) + 1);
 	}
-	return (number);
+	else
+	{
+		return (pna(n));
+	}
+}
+/**
+ * 
+ * 
+ * 
+ */
+int pna(unsigned int n)
+{
+	int c = 0;
+
+	if (n / 10 != 0)
+	{
+		c = pna(n / 10);
+	}
+	return (_putchar((n % 10) + '0') + c);
 }
