@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, counter = 0;
 
-	/* If format is null or if string do not have a '%' */
+	/* If format is null or if string has a '%' */
 	if (!format || !strcmp(format, "%"))
 		return (-1);
 	va_start(args, format);
